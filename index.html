@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabiana Victoria Sotillo | Portafolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --indigo: #3F51B5;
+      --indigo-dark: #303F9F;
+      --indigo-light: #C5CAE9;
+      --beige: #F9F8F3;
+      --blanco: #FFFFFF;
+      --gris-oscuro: #2C3E50;
+      --gris-medio: #7F8C8D;
+      --gris-suave: #E0E0E0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--beige);
+      color: var(--gris-oscuro);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: var(--blanco);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: var(--indigo-dark);
+      font-weight: 800;
+    }
+
+    nav div {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--gris-oscuro);
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      width: 0;
+      height: 2px;
+      background: var(--indigo);
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      /* He reducido el padding de 140px/120px a 100px/80px para hacerlo más estrecho */
+      padding: 100px 10% 80px 10%; 
+      background: linear-gradient(135deg, var(--indigo-dark), var(--indigo));
+      color: var(--blanco);
+      text-align: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px; /* Ligeramente más ancho para acomodar tu texto largo */
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 15px;
+      color: var(--blanco);
+    }
+
+    .hero span {
+      color: var(--indigo-light);
+      font-weight: 500;
+      font-size: 1.25rem; /* Reducido un poco para que el texto largo se lea bien */
+      display: block;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      margin-top: 25px;
+    }
+    /* SECTIONS */
+    section {
+      padding: 80px 10%;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      position: relative;
+      text-align: center;
+      color: var(--indigo-dark);
+    }
+
+    section h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--indigo);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* SOBRE MI - FRANJA DESPLEGABLE */
+    #sobre-mi {
+      padding: 0;
+      margin: 60px 0;
+      background: var(--blanco);
+      border-top: 1px solid var(--gris-suave);
+      border-bottom: 1px solid var(--gris-suave);
+    }
+
+    .about-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 40px 10%;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    .about-header:hover {
+      background: #fafafa;
+    }
+
+    #sobre-mi h2 {
+      margin-bottom: 0;
+    }
+
+    #sobre-mi h2::after {
+      display: none;
+    }
+
+    .arrow-icon {
+      color: var(--indigo);
+      transition: transform 0.4s ease;
+    }
+
+    .arrow-icon.open {
+      transform: rotate(180deg);
+    }
+
+    .about-content-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s ease-out;
+    }
+
+    .about-content-wrapper.open {
+      grid-template-rows: 1fr;
+    }
+
+    .about-inner {
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .about-text {
+      padding: 0 10% 40px 10%;
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--gris-oscuro);
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    /* PROJECTS */
+    .project-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--gris-suave);
+    }
+
+    .project-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .project-row:nth-child(even) {
+      direction: rtl;
+    }
+
+    .project-row:nth-child(even) .project-text {
+      direction: ltr;
+    }
+
+    .project-image {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      background: var(--indigo-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.6s ease;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.6s ease;
+    }
+
+    .project-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .img-placeholder {
+        color: var(--indigo-dark);
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .project-text {
+      max-width: 480px;
+    }
+
+    .project-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--indigo-dark);
+    }
+
+    .project-text p {
+      color: var(--gris-medio);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .tech {
+      font-size: 0.95rem;
+      color: var(--indigo);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* CONTACT */
+    .contact-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--indigo);
+      color: var(--indigo);
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--indigo);
+      color: var(--blanco);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: var(--blanco);
+      color: var(--gris-medio);
+      font-size: 0.9rem;
+    }
+
+    /* ANIMACIONES */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 900px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .project-row {
+        grid-template-columns: 1fr;
+        direction: ltr !important;
+        gap: 30px;
+      }
+      .project-image, .project-text {
+        max-width: 100%;
+      }
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+      .hero span {
+          font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h1>Fabiana V. Sotillo</h1>
+    <div>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content fade-up">
+      <h2>Hola, soy Fabiana</h2>
+      <span>Estudiante de Desarrollo de Aplicaciones Multiplataforma · Fullstack · Análisis de Existencias · Atención al Cliente</span>
+      <p>Creando soluciones eficientes y escalables combinando análisis de datos y desarrollo de software.</p>
+    </div>
+  </div>
+
+  <section id="sobre-mi" class="fade-up">
+    <div class="about-header" onclick="toggleAbout()">
+      <h2>Sobre mí</h2>
+      <svg class="arrow-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+    
+    <div class="about-content-wrapper" id="aboutContent">
+      <div class="about-inner">
+        <div class="about-text">
+          <p>
+            Soy estudiante de Desarrollo de Aplicaciones Multiplataforma. Me apasiona la creación de soluciones eficientes, el análisis de datos y el desarrollo fullstack.
+          </p>
+          <br>
+          <p>
+            También cuento con experiencia en atención al cliente y gestión de existencias, lo que complementa mis habilidades técnicas con un enfoque práctico y organizado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+
+    <div class="project-row fade-up">
+      <div class="project-image">
+        <div class="img-placeholder">Lumina UI</div>
+      </div>
+      <div class="project-text">
+        <h3>Lumina</h3>
+        <p>Lumina es un diario emocional web que ayuda a los usuarios a monitorear sus emociones mediante registros diarios. Cuenta con paneles estadísticos, un calendario interactivo y un completo panel de administración respaldado por una base de datos relacional segura.</p>
+        <div class="tech">Desarrollo Web Responsive · Automatización · Bienestar </div>
+      </div>
+    </div>
+
+    <div class="project-row fade-up">
+      <div class="project-image">
+        <div class="img-placeholder">NoDou App</div>
+      </div>
+      <div class="project-text">
+        <h3>NoDou</h3>
+        <p>NoDou es una app web que facilita dividir y organizar gastos entre amigos, pareja o compañeros de trabajo.
+Permite registrar transacciones y asignar pagos por persona o por artículo de manera sencilla.
+Con NoDou, llevar el control de quién debe qué es rápido, claro y sin complicaciones.</p>
+        <div class="tech">App Multiplataforma · Organización y Finanzas · En desarrollo</div>
+      </div>
+    </div>
+
+    <div class="project-row fade-up">
+      <div class="project-image">
+        <div class="img-placeholder">🛠️</div>
+      </div>
+      <div class="project-text">
+        <h3>Proyecto en Desarrollo</h3>
+        <p>Actualmente trabajando en nuevos proyectos que combinan análisis de datos profundos y desarrollo multiplataforma para soluciones empresariales.</p>
+        <div class="tech">En desarrollo · Fullstack</div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contact-buttons fade-up">
+      <a href="mailto:fsotillocuevas@gmail.com" class="btn">Enviar correo</a>
+      <a href="https://fabianasoti.github.io/Curriculum/" target="_blank" class="btn">Ver CV</a>
+      <a href="https://github.com/fabianasoti" target="_blank" class="btn">GitHub</a>
+      <a href="https://www.linkedin.com/in/fabianasotillo/" target="_blank" class="btn">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Fabiana Victoria Sotillo
+  </footer>
+
+  <script>
+    // Lógica para la animación de scroll de las secciones
+    const elements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    elements.forEach(el => observer.observe(el));
+
+    // Lógica para desplegar la franja "Sobre mí" y girar la flecha
+    function toggleAbout() {
+      const content = document.getElementById('aboutContent');
+      const arrow = document.querySelector('.arrow-icon');
+      
+      content.classList.toggle('open');
+      arrow.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
