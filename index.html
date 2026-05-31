@@ -3,434 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fabiana Victoria Sotillo | Portafolio</title>
+  <title>Fabiana Victoria Sotillo | Portafolio Desarrolladora</title>
+
+  <meta name="description" content="Portafolio de Fabiana Victoria Sotillo, estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM). Proyectos fullstack, web y análisis de datos.">
+  <meta name="author" content="Fabiana Victoria Sotillo">
+  <meta name="keywords" content="Fabiana Sotillo, portafolio, desarrolladora, DAM, fullstack, junior, HTML, CSS, JavaScript, Python, SQL, MySQL">
+
+  <meta property="og:title" content="Fabiana Victoria Sotillo | Portafolio">
+  <meta property="og:description" content="Estudiante DAM · Fullstack · Análisis de datos. Mira mis proyectos Lumina y NoDou.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fabianasoti.github.io/Portafolio/">
+  <meta property="og:image" content="img_lumina/dashboard.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fabiana Victoria Sotillo | Portafolio">
+  <meta name="twitter:description" content="Estudiante DAM · Fullstack · Análisis de datos.">
+  <meta name="twitter:image" content="img_lumina/dashboard.png">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233F51B5'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EF%3C/text%3E%3C/svg%3E">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --indigo: #3F51B5;
-      --indigo-dark: #303F9F;
-      --indigo-light: #C5CAE9;
-      --beige: #F9F8F3;
-      --blanco: #FFFFFF;
-      --gris-oscuro: #2C3E50;
-      --gris-medio: #7F8C8D;
-      --gris-suave: #E0E0E0;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--beige);
-      color: var(--gris-oscuro);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    /* NAV */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 10%;
-      background: var(--blanco);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    nav h1 {
-      font-size: 1.5rem;
-      color: var(--indigo-dark);
-      font-weight: 800;
-    }
-
-    nav div {
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--gris-oscuro);
-      font-weight: 500;
-      position: relative;
-    }
-
-    nav a::after {
-      content: "";
-      width: 0;
-      height: 2px;
-      background: var(--indigo);
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      transition: 0.3s;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* HERO */
-    .hero {
-      position: relative;
-      padding: 100px 10% 80px 10%; 
-      background: linear-gradient(135deg, var(--indigo-dark), var(--indigo));
-      color: var(--blanco);
-      text-align: center;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero h2 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 15px;
-      color: var(--blanco);
-    }
-
-    .hero span {
-      color: var(--indigo-light);
-      font-weight: 500;
-      font-size: 1.25rem;
-      display: block;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      opacity: 0.9;
-      margin-top: 25px;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 80px 10%;
-      /* ¡AQUÍ ESTÁ LA MAGIA! Evita que el menú sticky tape el inicio de la sección */
-      scroll-margin-top: 80px; 
-    }
-
-    section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 50px;
-      position: relative;
-      text-align: center;
-      color: var(--indigo-dark);
-    }
-
-    section h2::after {
-      content: "";
-      width: 60px;
-      height: 4px;
-      background: var(--indigo);
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* SOBRE MI */
-    #sobre-mi {
-      padding: 0;
-      margin: 60px 0;
-      background: var(--blanco);
-      border-top: 1px solid var(--gris-suave);
-      border-bottom: 1px solid var(--gris-suave);
-      /* Aseguramos el margen de scroll también en esta sección específica */
-      scroll-margin-top: 80px;
-    }
-
-    .about-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      padding: 40px 10%;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-
-    .about-header:hover {
-      background: #fafafa;
-    }
-
-    #sobre-mi h2 {
-      margin-bottom: 0;
-    }
-
-    #sobre-mi h2::after {
-      display: none;
-    }
-
-    .arrow-icon {
-      color: var(--indigo);
-      transition: transform 0.4s ease;
-    }
-
-    .arrow-icon.open {
-      transform: rotate(180deg);
-    }
-
-    .about-content-wrapper {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.4s ease-out;
-    }
-
-    .about-content-wrapper.open {
-      grid-template-rows: 1fr;
-    }
-
-    .about-inner {
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .about-text {
-      padding: 0 10% 40px 10%;
-      max-width: 900px;
-      margin: 0 auto;
-      color: var(--gris-oscuro);
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-
-    /* PROJECTS */
-    .project-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 80px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid var(--gris-suave);
-    }
-
-    .project-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .project-row:nth-child(even) {
-      direction: rtl;
-    }
-
-    .project-row:nth-child(even) .project-text {
-      direction: ltr;
-    }
-
-    .project-image {
-      width: 100%;
-      max-width: 500px;
-      aspect-ratio: 16 / 9;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      background: var(--indigo-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.6s ease;
-      position: relative;
-    }
-
-    .img-placeholder {
-        color: var(--indigo-dark);
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
-
-    /* CARRUSEL */
-    .carousel-container {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-      direction: ltr; 
-    }
-
-    .carousel-track {
-      display: flex;
-      height: 100%;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-track img {
-      min-width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.7);
-      color: var(--indigo-dark);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s, color 0.3s;
-      z-index: 10;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    .carousel-btn:hover {
-      background: var(--indigo);
-      color: var(--blanco);
-    }
-
-    .project-row:nth-child(odd) .btn-prev,
-    .project-row:nth-child(even) .btn-prev {
-      left: 10px;
-    }
-    
-    .project-row:nth-child(odd) .btn-next,
-    .project-row:nth-child(even) .btn-next {
-      right: 10px;
-    }
-
-    .carousel-dots {
-      position: absolute;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    }
-
-    .dot:hover {
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .dot.active {
-      background: #ffffff;
-      transform: scale(1.3);
-    }
-
-    .project-text {
-      max-width: 480px;
-    }
-
-    .project-text h3 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: var(--indigo-dark);
-    }
-
-    .project-text p {
-      color: var(--gris-medio);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .tech {
-      font-size: 0.95rem;
-      color: var(--indigo);
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    /* CONTACT */
-    .contact-buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      padding: 14px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      border: 2px solid var(--indigo);
-      color: var(--indigo);
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      background: var(--indigo);
-      color: var(--blanco);
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: var(--blanco);
-      color: var(--gris-medio);
-      font-size: 0.9rem;
-    }
-
-    /* ANIMACIONES */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* RESPONSIVE */
-    @media(max-width: 900px) {
-      nav {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .project-row {
-        grid-template-columns: 1fr;
-        direction: ltr !important;
-        gap: 30px;
-      }
-      .project-image, .project-text {
-        max-width: 100%;
-      }
-      .hero h2 {
-        font-size: 2.5rem;
-      }
-      .hero span {
-          font-size: 1.5rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -439,6 +32,7 @@
     <h1>Fabiana V. Sotillo</h1>
     <div>
       <a href="#sobre-mi">Sobre mí</a>
+      <a href="#tecnologias">Tecnologías</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#contacto">Contacto</a>
     </div>
@@ -446,32 +40,40 @@
 
   <div class="hero">
     <div class="hero-content fade-up">
-      <h2>Hola, soy Fabiana</h2>
-      <span>Estudiante de Desarrollo de Aplicaciones Multiplataforma · Fullstack · Análisis de Existencias · Atención al Cliente</span>
-      <p>Creando soluciones eficientes y escalables combinando análisis de datos y desarrollo de software.</p>
+      <h2>Fabiana Sotillo</h2>
+      <span>Desarrolladora Junior · DAM · Fullstack</span>
+      <p>Creo apps que resuelven problemas reales. Dos proyectos propios, muchos commits por delante.</p>
+      <a href="#proyectos" class="hero-cta">Ver proyectos ↓</a>
     </div>
   </div>
 
   <section id="sobre-mi" class="fade-up">
-    <div class="about-header" onclick="toggleAbout()">
-      <h2>Sobre mí</h2>
-      <svg class="arrow-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
+    <h2>Sobre mí</h2>
+    <div class="about-text">
+      <p>
+        Soy estudiante de Desarrollo de Aplicaciones Multiplataforma con especial interés en el desarrollo fullstack y el análisis de datos. Me gusta construir proyectos propios porque creo que es la mejor forma de aprender de verdad.
+      </p>
+      <br>
+      <p>
+        Antes de DAM trabajé en atención al cliente y gestión de stock, lo que me dio un enfoque práctico y orientado a solucionar problemas reales — algo que aplico también cuando programo.
+      </p>
     </div>
-    
-    <div class="about-content-wrapper" id="aboutContent">
-      <div class="about-inner">
-        <div class="about-text">
-          <p>
-            Soy estudiante de Desarrollo de Aplicaciones Multiplataforma. Me apasiona la creación de soluciones eficientes, el análisis de datos y el desarrollo fullstack.
-          </p>
-          <br>
-          <p>
-            También cuento con experiencia en atención al cliente y gestión de existencias, lo que complementa mis habilidades técnicas con un enfoque práctico y organizado.
-          </p>
-        </div>
-      </div>
+  </section>
+
+  <section id="tecnologias" class="fade-up">
+    <h2>Tecnologías</h2>
+    <div class="tech-grid">
+      <span class="tech-badge">HTML5</span>
+      <span class="tech-badge">CSS3</span>
+      <span class="tech-badge">JavaScript</span>
+      <span class="tech-badge">Python</span>
+      <span class="tech-badge">Java</span>
+      <span class="tech-badge">MySQL</span>
+      <span class="tech-badge">SQL</span>
+      <span class="tech-badge">PHP</span>
+      <span class="tech-badge">Git &amp; GitHub</span>
+      <span class="tech-badge">Linux / Bash</span>
+      <span class="tech-badge">Diseño Responsive</span>
     </div>
   </section>
 
@@ -482,21 +84,24 @@
       <div class="project-image">
         <div class="carousel-container">
           <div class="carousel-track" id="track-lumina">
-            <img src="img_lumina/inicio.png" alt="Lumina - Pantalla Principal de Usuario">
-            <img src="img_lumina/dashboard.png" alt="Lumina - Pantalla Inicial">
-            <img src="img_lumina/admin.png" alt="Lumina - Pantalla de Admin">
-            <img src="img_lumina/historial.png" alt="Lumina - Historial de Registros">
-            <img src="img_lumina/estadisticas.png" alt="Lumina - Estadisticas">
+            <img src="img_lumina/inicio.png" alt="Lumina — pantalla de inicio" loading="lazy">
+            <img src="img_lumina/dashboard.png" alt="Lumina — dashboard" loading="lazy">
+            <img src="img_lumina/estadisticas.png" alt="Lumina — estadísticas" loading="lazy">
+            <img src="img_lumina/historial.png" alt="Lumina — historial" loading="lazy">
+            <img src="img_lumina/admin.png" alt="Lumina — panel de administración" loading="lazy">
           </div>
-          <button class="carousel-btn btn-prev" onclick="moveSlide('track-lumina', -1)">&#10094;</button>
-          <button class="carousel-btn btn-next" onclick="moveSlide('track-lumina', 1)">&#10095;</button>
+          <button class="carousel-btn btn-prev" onclick="moveSlide('track-lumina', -1)" aria-label="Imagen anterior">&#10094;</button>
+          <button class="carousel-btn btn-next" onclick="moveSlide('track-lumina', 1)" aria-label="Imagen siguiente">&#10095;</button>
           <div class="carousel-dots" id="dots-track-lumina"></div>
         </div>
       </div>
       <div class="project-text">
         <h3>Lumina</h3>
         <p>Lumina es un diario emocional web que ayuda a los usuarios a monitorear sus emociones mediante registros diarios. Cuenta con paneles estadísticos, un calendario interactivo y un completo panel de administración respaldado por una base de datos relacional segura.</p>
-        <div class="tech">Desarrollo Web Responsive · Automatización · Bienestar </div>
+        <div class="tech">PHP · MySQL · JavaScript · HTML/CSS · Diseño Responsive</div>
+        <div class="project-links">
+          <a href="https://github.com/fabianasoti/Lumina-Diario" target="_blank" rel="noopener" class="project-link primary">Ver código</a>
+        </div>
       </div>
     </div>
 
@@ -504,34 +109,32 @@
       <div class="project-image">
         <div class="carousel-container">
           <div class="carousel-track" id="track-nodou">
-            <img src="img_nodou/hub.png" alt="NoDou - Pantalla de Bienvenida">
-            <img src="img_nodou/homeuser.png" alt="NoDou - Pantalla Principal de Usuario">
-            <img src="img_nodou/dividir.png" alt="NoDou - Pantalla de División de Gastos">
-            <img src="img_nodou/estadisticas.png" alt="NoDou - Pantalla de Estadísticas">
-            <img src="img_nodou/historial.png" alt="NoDou - Historial de Transacciones">
+            <img src="img_nodou/homeuser.png" alt="NoDou — pantalla principal usuario" loading="lazy">
+            <img src="img_nodou/hub.png" alt="NoDou — hub de grupos" loading="lazy">
+            <img src="img_nodou/dividir.png" alt="NoDou — dividir gastos" loading="lazy">
+            <img src="img_nodou/division2.png" alt="NoDou — división detallada" loading="lazy">
+            <img src="img_nodou/fijos.png" alt="NoDou — gastos fijos" loading="lazy">
+            <img src="img_nodou/frecuentes.png" alt="NoDou — gastos frecuentes" loading="lazy">
+            <img src="img_nodou/historial.png" alt="NoDou — historial" loading="lazy">
+            <img src="img_nodou/estadisticas.png" alt="NoDou — estadísticas" loading="lazy">
+            <img src="img_nodou/homeadmin.png" alt="NoDou — panel administrador" loading="lazy">
           </div>
-          <button class="carousel-btn btn-prev" onclick="moveSlide('track-nodou', -1)">&#10094;</button>
-          <button class="carousel-btn btn-next" onclick="moveSlide('track-nodou', 1)">&#10095;</button>
+          <button class="carousel-btn btn-prev" onclick="moveSlide('track-nodou', -1)" aria-label="Imagen anterior">&#10094;</button>
+          <button class="carousel-btn btn-next" onclick="moveSlide('track-nodou', 1)" aria-label="Imagen siguiente">&#10095;</button>
           <div class="carousel-dots" id="dots-track-nodou"></div>
         </div>
       </div>
       <div class="project-text">
         <h3>NoDou</h3>
-        <p>NoDou es una app web que facilita dividir y organizar gastos entre amigos, pareja o compañeros de trabajo. Permite registrar transacciones y asignar pagos por persona o por artículo de manera sencilla. Con NoDou, llevar registro de las cuentas, es rápido, claro y sin complicaciones.</p>
-        <div class="tech">App Multiplataforma · Organización y Finanzas · En desarrollo</div>
+        <p>NoDou es una app web que facilita dividir y organizar gastos entre amigos, pareja o compañeros de trabajo. Permite registrar transacciones y asignar pagos por persona o por artículo de manera sencilla. Con NoDou, llevar registro de las cuentas es rápido, claro y sin complicaciones.</p>
+        <div class="tech">PHP · MySQL · JavaScript · HTML/CSS · Diseño Responsive</div>
+        <div class="project-links">
+          <a href="https://overflowing-contentment-production-408d.up.railway.app" target="_blank" rel="noopener" class="project-link primary">Ver demo</a>
+          <a href="https://github.com/fabianasoti/NoDou" target="_blank" rel="noopener" class="project-link">Ver código</a>
+        </div>
       </div>
     </div>
 
-    <div class="project-row fade-up">
-      <div class="project-image">
-        <div class="img-placeholder">🛠️</div>
-      </div>
-      <div class="project-text">
-        <h3>Proyecto en Desarrollo</h3>
-        <p>Actualmente trabajando en nuevos proyectos que combinan análisis de datos profundos y desarrollo multiplataforma para soluciones empresariales.</p>
-        <div class="tech">En desarrollo · Fullstack</div>
-      </div>
-    </div>
 
   </section>
 
@@ -539,9 +142,9 @@
     <h2>Contacto</h2>
     <div class="contact-buttons fade-up">
       <a href="mailto:fsotillocuevas@gmail.com" class="btn">Enviar correo</a>
-      <a href="https://fabianasoti.github.io/Curriculum/" target="_blank" class="btn">Ver CV</a>
-      <a href="https://github.com/fabianasoti" target="_blank" class="btn">GitHub</a>
-      <a href="https://www.linkedin.com/in/fabianasotillo/" target="_blank" class="btn">LinkedIn</a>
+      <a href="https://fabianasoti.github.io/Curriculum/" target="_blank" rel="noopener" class="btn">Ver CV</a>
+      <a href="https://github.com/fabianasoti" target="_blank" rel="noopener" class="btn">GitHub</a>
+      <a href="https://www.linkedin.com/in/fabianasotillo/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
     </div>
   </section>
 
@@ -549,109 +152,7 @@
     © 2026 Fabiana Victoria Sotillo
   </footer>
 
-  <script>
-    // Lógica para la animación de scroll de las secciones
-    const elements = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    elements.forEach(el => observer.observe(el));
-
-    // Lógica para desplegar la franja "Sobre mí"
-    function toggleAbout() {
-      const content = document.getElementById('aboutContent');
-      const arrow = document.querySelector('.arrow-icon');
-      
-      content.classList.toggle('open');
-      arrow.classList.toggle('open');
-    }
-
-    // --- LÓGICA DEL CARRUSEL CON PUNTITOS ---
-    const carouselsState = {
-      'track-lumina': 0,
-      'track-nodou': 0
-    };
-
-    // Inicializar los puntos cuando la página carga
-    function initCarousels() {
-      Object.keys(carouselsState).forEach(trackId => {
-        const track = document.getElementById(trackId);
-        const dotsContainer = document.getElementById('dots-' + trackId);
-        
-        if (!track || !dotsContainer) return;
-
-        const imagesCount = track.querySelectorAll('img').length;
-        
-        // Crear un punto por cada imagen
-        for (let i = 0; i < imagesCount; i++) {
-          const dot = document.createElement('div');
-          dot.classList.add('dot');
-          if (i === 0) dot.classList.add('active'); 
-          
-          dot.onclick = () => goToSlide(trackId, i);
-          
-          dotsContainer.appendChild(dot);
-        }
-      });
-    }
-
-    // Actualizar visualmente qué punto está activo
-    function updateDots(trackId, index) {
-      const dotsContainer = document.getElementById('dots-' + trackId);
-      if (!dotsContainer) return;
-      
-      const dots = dotsContainer.querySelectorAll('.dot');
-      dots.forEach((dot, i) => {
-        if (i === index) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
-      });
-    }
-
-    // Mover con las flechas
-    function moveSlide(trackId, direction) {
-      const track = document.getElementById(trackId);
-      if (!track) return;
-      
-      const imagesCount = track.querySelectorAll('img').length;
-      carouselsState[trackId] += direction;
-
-      // Lógica de carrusel infinito
-      if (carouselsState[trackId] >= imagesCount) {
-        carouselsState[trackId] = 0;
-      } else if (carouselsState[trackId] < 0) {
-        carouselsState[trackId] = imagesCount - 1;
-      }
-
-      applySlideTransform(trackId);
-    }
-
-    // Ir a un slide específico (al hacer clic en un punto)
-    function goToSlide(trackId, slideIndex) {
-      carouselsState[trackId] = slideIndex;
-      applySlideTransform(trackId);
-    }
-
-    // Aplicar el movimiento CSS y actualizar los puntos
-    function applySlideTransform(trackId) {
-      const track = document.getElementById(trackId);
-      const currentIndex = carouselsState[trackId];
-      
-      const displacement = -currentIndex * 100;
-      track.style.transform = `translateX(${displacement}%)`;
-      
-      updateDots(trackId, currentIndex);
-    }
-
-    // Ejecutar la inicialización cuando el documento esté listo
-    document.addEventListener('DOMContentLoaded', initCarousels);
-  </script>
+  <script src="main.js"></script>
 
 </body>
 </html>
